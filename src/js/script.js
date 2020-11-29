@@ -1,6 +1,11 @@
  
 let filepath = "heroes_dict.json" 
+let boxDiv = document.getElementById("boxDiv")
+let tooltipDiv = document.getElementById("tooltipDiv")
+let labelsDiv = document.getElementById("labelsDiv")
+let searchbar = document.getElementById("searchbar")
 
+// fetch JSON file with infos
 function getHeroInfo(hero_name) {
     fetch(filepath)
     .then(response => { 
@@ -21,16 +26,12 @@ function parseInformation (hero_name, hero_data) {
 }
 
 function createBox(ability_name, ability_description) {
-    let boxDiv = document.getElementById("boxDiv")
     let label = document.createElement("label")
     let tooltip = document.createElement("p")
-    let tooltipDiv = document.getElementById("tooltipDiv")
-    let labelsDiv = document.getElementById("labelsDiv")
     console.log(boxDiv)
     boxDiv.className= "boxDiv"
     label.className = "abilityLabel"
     label.innerHTML = ability_name
-    
     tooltip.className = "popup"
     tooltip.innerText = ability_description
     label.onmouseover = () => {
@@ -47,12 +48,16 @@ function getRequestedHero(event) {
     searchbar = document.getElementById("searchbar")
     let input = searchbar.value.toLowerCase()
     if (event.keyCode == 13) {
-        // let boxDiv = document.getElementById("boxDiv")
-        let tooltipDiv = document.getElementById("tooltipDiv")
-        let labelsDiv = document.getElementById("labelsDiv")
+        // let tooltipDiv = document.getElementById("tooltipDiv")
+        // let labelsDiv = document.getElementById("labelsDiv")
         tooltipDiv.innerHTML=""
         labelsDiv.innerHTML=""
-
         getHeroInfo(input)
     }
+}
+
+function clearButton() {
+    searchbar.value = "";
+    tooltipDiv.innerHTML=""
+    labelsDiv.innerHTML=""
 }
