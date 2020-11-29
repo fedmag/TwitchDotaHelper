@@ -1,2 +1,2 @@
 # TwitchDotaHelper
-Twitch overlay to retrieve heroes abilities/
+Twitch overlay to retrieve heroes abilities
