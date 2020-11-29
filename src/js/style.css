@@ -1,5 +1,6 @@
 :root {
-    font-family: 'Montserrat';
+
+    --maxW :600px;
 }
 html, body {
     height: 100%;
@@ -8,25 +9,21 @@ html, body {
     font-weight: 500;
     font-family: 'Montserrat';
 }
-
 #searchbar {
     font-family: 'Montserrat';
-    font-size: 15px;
-    margin-top: 15px;
+    margin-top: 10px;
     margin-left: 10px;
-    margin-right: 5px;
-    border-radius: 20px;
-    width: 110px;
-    box-shadow: none;
-    border: 1px solid black;
-    padding-left: 10px;
-    transition: width; 
+    border-radius: 15px;
+    padding-left: 8px;
+    border: 1px 2 black;
+}
+#searchbar:focus {
+    font-size: larger;
     outline: none;
 }
 
 #searchbar:hover {
-    transition-duration: 0.5s;
-    width: 170px;
+    font-size: larger;
 }
 
 .boxDiv {
@@ -38,108 +35,41 @@ html, body {
 }
 
 .labelsDiv{
-    position: relative;
+    position:  relative;
+    /* align-items: center; */
     display: flexbox;
-    flex-flow: row;
-    top: 50%;
-    height: auto;
-    width:auto;
+    top: 80%;
+    
+    width: auto;
+    /* bottom: 32px; */
 }
 
 .abilityLabel {
     margin-right: 35px;
-    border: 1px solid aliceblue;
+    border: 1px solid black;
     padding: 4px;
     border-radius: 15px;
-    background-color: aliceblue;
 }
+
 
 .tooltipDiv {
     align-items: center;
     margin-top: 30px;
-}
+    /* height: fit-content; */
 
+}
 .popup {
     display: none;
     position: absolute;
-    padding: 3px;
+    padding: 10px;
     border-radius: 15px;
     right: 25%;
     left: 25%;
     /* top: 30%; */
-    bottom: 45%;
+    bottom: 10%;
     width: 50%;
     height: fit-content;
-    background-color: rgba(43, 39, 39, 0.959);
-    color: rgb(255, 255, 255);
+    background-color: rgba(75, 70, 70, 0.959);
+    color: rgb(238, 242, 245);
 
 }
-
-/* .clearBtn {
-	background-color:#2a8494;
-	border-radius:28px;
-	border:1px solid #2a8494;
-	display:inline-block;
-	cursor:pointer;
-	color:#ffffff;
-    color: black;
-	font-size:15px;
-	padding:1px 5px;
-	text-decoration:none;
-	text-shadow:0px 1px 0px #2f6627;
-}
-.clearBtn:hover {
-	background-color:#3ab2cf;
-}
-.clearBtn:active {
-	position:relative;
-    top:1px;
-} */
-
-.button {
-    font-family: 'Montserrat';
-    position: relative;
-    display: inline-block;
-    border-radius: 15px;
-    background-color: #ff3939;
-    border: none;
-    color:black;
-    text-align: center;
-    font-size: 19px;
-    outline: none;
-    width: auto;
-    transition: all 0.3s;
-    cursor: pointer;
-    height: 23px;
-    padding: auto;
-    transition: transform 1s;
-    margin-bottom: 0px;
-    bottom: 1px;
-    left: 0px;
-}
-
-.button span {
-    cursor: pointer;
-    display: inline-block;
-    position: relative;
-    transition: 0.5s;
-}
-
-.button span:after {
-    content: "Clear";
-    position: absolute;
-    width: auto;
-    opacity: 0;
-    top: 0;
-    right: -200px;
-    transition: 0.5s;
-}
-
-.button:hover span {
-    padding-right: 55px;
-}
-
-.button:hover span:after {
-    opacity: 1;
-    right: 0;
-} 
