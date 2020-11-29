@@ -1,0 +1,75 @@
+:root {
+
+    --maxW :600px;
+}
+html, body {
+    height: 100%;
+    width: auto;
+    margin: 0px;
+    font-weight: 500;
+    font-family: 'Montserrat';
+}
+#searchbar {
+    font-family: 'Montserrat';
+    margin-top: 10px;
+    margin-left: 10px;
+    border-radius: 15px;
+    padding-left: 8px;
+    border: 1px 2 black;
+}
+#searchbar:focus {
+    font-size: larger;
+    outline: none;
+}
+
+#searchbar:hover {
+    font-size: larger;
+}
+
+.boxDiv {
+    text-align: center;
+    position: absolute;
+    height: 300px;
+    width: 100%;
+    bottom: 10px;
+}
+
+.labelsDiv{
+    position:  relative;
+    /* align-items: center; */
+    display: flexbox;
+    top: 80%;
+    
+    width: auto;
+    /* bottom: 32px; */
+}
+
+.abilityLabel {
+    margin-right: 35px;
+    border: 1px solid black;
+    padding: 4px;
+    border-radius: 15px;
+}
+
+
+.tooltipDiv {
+    align-items: center;
+    margin-top: 30px;
+    /* height: fit-content; */
+
+}
+.popup {
+    display: none;
+    position: absolute;
+    padding: 10px;
+    border-radius: 15px;
+    right: 25%;
+    left: 25%;
+    /* top: 30%; */
+    bottom: 10%;
+    width: 50%;
+    height: fit-content;
+    background-color: rgba(75, 70, 70, 0.959);
+    color: rgb(238, 242, 245);
+
+}

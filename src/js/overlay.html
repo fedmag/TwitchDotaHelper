@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100&display=swap" rel="stylesheet">
+
+    <title>DotaHelper</title>
+</head>
+<body>
+    <div class="searchbarDiv">
+        <input id="searchbar" onkeydown="getRequestedHero(event)" type="text" placeholder="Search hero..">
+    </div>
+    <div class="boxDiv" id="boxDiv"> 
+        <div class="tooltipDiv" id="tooltipDiv"></div>
+        <div class="labelsDiv" id="labelsDiv"></div>
+    </div>
+<!--import extension helper library -->
+<script src="https://extension-files.twitch.tv/helper/v1/twitch-ext.min.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
