@@ -69,8 +69,8 @@ class Parser:
 
         Returns
         -------
-        str
-            string of the type: "ability_name $ ability_description"
+        dict
+            dictionary: { "ability_name" : "ability_description" }
 
         """
 
@@ -83,7 +83,7 @@ class Parser:
             ): # the goal line contains "ability" and "description", but not  "special", "item" or "aghanim" TODO: aghs can be implemented
             ability_name = self.clean_ability_name(tokens[1], hero_name) # FIXME: must be cleaned
             ability_descr = tokens[-2]
-            ability_descr_pair = ability_name + "$" + ability_descr
+            ability_descr_pair = { ability_name : ability_descr }
             return ability_descr_pair
 
     def clean_ability_name(self, line: str, hero_name: str) -> str:
@@ -103,11 +103,35 @@ class Parser:
             the name of the ability
         """
 
+        # there are a seriese of inconsistencies in the data regarding the names: sometime they are splitted like "queen of pain" but in the ability it s represente as "queenofpain"
+
         line = line.replace("_", " ")
         tokens = line.split(" ")
+        hero_name = self.check_for_name_inconsistencies(hero_name)
         name_splits = hero_name.split(" ")
         ability_name = tokens[3 + len(name_splits): -1]
-        return " ".join(ability_name)
+        ability_name = " ".join(ability_name) 
+        return ability_name
+
+    def check_for_name_inconsistencies(self, name: str) -> str:
+        if name == "queen of pain":
+            return "queenofpain"
+        if name == "blood seeker":
+            return "bloodseeker"
+        if name == "centaur warchief":
+            return "centaur"
+        if name == "treant protector":
+            return "treant"
+        if name == "shadowshaman":
+            return "shadowshaman"
+        if name == "witchdoctor":
+            return "witch doctor"
+        # if name == "Outworld Devourer":
+        #     return "obsidian destroyer"
+
+            
+        else: 
+            return name
 
     def get_dictionary(self) -> dict:
         """ 
@@ -142,9 +166,9 @@ class Parser:
             print("File successfully created!")
 
     
-parser = Parser("/home/fedmag/Projects/DotaTrainer/data/heroes_ability.txt")
+parser = Parser("data/abilitiesRaw.txt")
 parser.parse_file()
-parser.hero_dict_to_file("/home/fedmag/Projects/DotaTrainer/data/heroes_dict.json")
+parser.hero_dict_to_file("src/js/heroes_dict_with_dict.json")
 
 
 # %%

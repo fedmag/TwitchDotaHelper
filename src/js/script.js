@@ -1,5 +1,5 @@
  
-let filepath = "heroes_dict.json" 
+let filepath = "heroes_dict_with_dict.json" 
 let boxDiv = document.getElementById("boxDiv")
 let tooltipDiv = document.getElementById("tooltipDiv")
 let labelsDiv = document.getElementById("labelsDiv")
@@ -27,12 +27,17 @@ function getHeroInfo(hero_name) {
     })
 }
 
-function parseInformation (hero_data) {
-    hero_data.forEach(element => {
-        let tokens = element.split("$")
-        let ability_name = tokens[0]
-        let ability_description = tokens[1]
-        createBox(ability_name, ability_description)
+// function parseInformation (hero_data) {
+//     hero_data.forEach(element => {
+//         let tokens = element.split("$")
+//         let ability_name = tokens[0]
+//         let ability_description = tokens[1]
+//         createBox(ability_name, ability_description)
+//     });
+// }
+function parseInformation (heroData) {
+    heroData.forEach(element => {
+        createBox(Object.keys(element), Object.values(element))
     });
 }
 
