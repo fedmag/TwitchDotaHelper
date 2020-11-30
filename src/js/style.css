@@ -12,7 +12,7 @@ html, body {
 #searchbar {
     font-family: 'Montserrat';
     font-size: 15px;
-    margin-top: 15px;
+    margin-top: 6em;
     margin-left: 10px;
     margin-right: 5px;
     border-radius: 20px;
@@ -34,7 +34,7 @@ html, body {
     position: absolute;
     height: 300px;
     width: 100%;
-    bottom: 10px;
+    bottom: 4em;
 }
 
 .labelsDiv{

@@ -4,6 +4,17 @@ let boxDiv = document.getElementById("boxDiv")
 let tooltipDiv = document.getElementById("tooltipDiv")
 let labelsDiv = document.getElementById("labelsDiv")
 let searchbar = document.getElementById("searchbar")
+let clearBtn = document.getElementById("clearBtn")
+searchbar.addEventListener('keyup', getRequestedHero)
+clearBtn.addEventListener('click', clearButton)
+
+function getRequestedHero() {
+    let input = searchbar.value.toLowerCase()
+    console.log(input)
+    tooltipDiv.innerHTML=""
+    labelsDiv.innerHTML=""
+    getHeroInfo(input)
+}
 
 // fetch JSON file with infos
 function getHeroInfo(hero_name) {
@@ -12,11 +23,11 @@ function getHeroInfo(hero_name) {
         return response.json();
     })
     .then(data => {
-        parseInformation(hero_name, data[hero_name])
+        parseInformation(data[hero_name])
     })
 }
 
-function parseInformation (hero_name, hero_data) {
+function parseInformation (hero_data) {
     hero_data.forEach(element => {
         let tokens = element.split("$")
         let ability_name = tokens[0]
@@ -42,18 +53,6 @@ function createBox(ability_name, ability_description) {
     }
     tooltipDiv.appendChild(tooltip)
     labelsDiv.appendChild(label)
-}
-
-function getRequestedHero(event) {
-    searchbar = document.getElementById("searchbar")
-    let input = searchbar.value.toLowerCase()
-    // if (event.keyCode == 13) {
-        // let tooltipDiv = document.getElementById("tooltipDiv")
-        // let labelsDiv = document.getElementById("labelsDiv")
-        tooltipDiv.innerHTML=""
-        labelsDiv.innerHTML=""
-        getHeroInfo(input)
-    // }
 }
 
 function clearButton() {
