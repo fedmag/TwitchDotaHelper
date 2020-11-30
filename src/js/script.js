@@ -47,13 +47,13 @@ function createBox(ability_name, ability_description) {
 function getRequestedHero(event) {
     searchbar = document.getElementById("searchbar")
     let input = searchbar.value.toLowerCase()
-    if (event.keyCode == 13) {
+    // if (event.keyCode == 13) {
         // let tooltipDiv = document.getElementById("tooltipDiv")
         // let labelsDiv = document.getElementById("labelsDiv")
         tooltipDiv.innerHTML=""
         labelsDiv.innerHTML=""
         getHeroInfo(input)
-    }
+    // }
 }
 
 function clearButton() {
