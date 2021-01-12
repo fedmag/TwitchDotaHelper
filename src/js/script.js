@@ -1,5 +1,5 @@
  
-let filepath = "heroes_dict_with_dict.json" 
+let filepath = "WebScraper.json" 
 let boxDiv = document.getElementById("boxDiv")
 let tooltipDiv = document.getElementById("tooltipDiv")
 let labelsDiv = document.getElementById("labelsDiv")
@@ -9,7 +9,7 @@ searchbar.addEventListener('keyup', getRequestedHero)
 clearBtn.addEventListener('click', clearButton)
 
 function getRequestedHero() {
-    let input = searchbar.value.toLowerCase()
+    let input = searchbar.value.trim().toLowerCase()
     console.log(input)
     tooltipDiv.innerHTML=""
     labelsDiv.innerHTML=""
@@ -27,17 +27,15 @@ function getHeroInfo(hero_name) {
     })
 }
 
-// function parseInformation (hero_data) {
-//     hero_data.forEach(element => {
-//         let tokens = element.split("$")
-//         let ability_name = tokens[0]
-//         let ability_description = tokens[1]
-//         createBox(ability_name, ability_description)
-//     });
-// }
 function parseInformation (heroData) {
     heroData.forEach(element => {
-        createBox(Object.keys(element), Object.values(element))
+        if (element != "") {
+            splitted = element.split("\n") 
+            name = splitted[0]
+            descr = splitted.slice(2, -2)
+            descr = descr.join("\n")
+            createBox(name, descr)
+        }
     });
 }
 
